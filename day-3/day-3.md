@@ -17,7 +17,69 @@
     sudo npx create-react-app project_name --template typescript
 ```
 
+4. JSX 문법1
 
-- public
-    - index.html : 실제로 화면에 렌더링 되는 html.
-    - index.html 안의 <div id = "root">     
+```js
+    // 불편한 기존의 방식
+    function App(){
+        return React.createElement("p", null, "반갑습니다.");
+    }
+
+    // 편리한 JSX문법
+    // HTML 문법을 JS 기반으로 사용할 수 있어 편리하다!
+    function App(){
+        return (
+            <div className="App-header">
+                <h1> Hello, React !</h1>
+                <p> 반갑습니다. </p>
+            </div>
+        );
+    }
+```
+
+5. JSX 문법2
+
+```js
+    // 변수 사용 가능
+    function App(){
+        let hello = "반갑습니다.";
+        let name = "sangchan";
+
+        return (
+            <div className="App-header">
+                <h1> Hello, { name !== undefined ? (<h1>{name}</h1>) : (<h1>누구쎄용</h1>) } </h1>
+                <p> {hello} </p>
+            </div>
+        );
+    }
+```
+
+6. JSX 문법3
+
+- 객체로 component style 설정 가능
+- 주석 생성 방법
+
+```js
+    // component style 설정 가능
+    function App(){
+        let hello = "반갑습니다.";
+        let name = "sangchan";
+
+        { /* 주석 작성 방법 1 */ }
+        // 주석 작성 방법 2
+        const div_style = {
+            backgroundColor : 'black',
+            color : 'white',
+            fontSize : '48px',
+            fontWeight : 'bold',
+            padding : '20px'
+        };
+
+        return (
+            <div style = {div_style}>
+                <h1> Hello, { name !== undefined ? (<h1>{name}</h1>) : (<h1>누구쎄용</h1>) } </h1>
+                <p> {hello} </p>
+            </div>
+        );
+    }
+```
