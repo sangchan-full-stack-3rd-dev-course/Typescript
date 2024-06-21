@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import Timer from "./Timer";
 import Clock from "./Clock";
+import TodoModal from "../day-5/TodoModal";
 
-type Todo = {
+export type ToDo = {
     id : number;
     text : string;
     isChecked : boolean;
@@ -13,7 +13,7 @@ const TodoList : React.FC = () => {
     const title : string = "오늘 할 일";
 
     // 구조 분해 할당
-    const [todos, setTodos] = useState<Todo[]>([
+    const [todos, setTodos] = useState<ToDo[]>([
         {id : 1, text : '공부하기', isChecked : false},
         {id : 2, text : '잠자기', isChecked : false},
         {id : 3, text : '일어나기', isChecked : false}
@@ -44,9 +44,9 @@ const TodoList : React.FC = () => {
 
     // modal 띄우기 위한 state, 메소드
     const [showDatail, setShowDatail] = useState<boolean>(false);
-    const [selectedTodo, setSelectedTodo] = useState<Todo|null>(null);
+    const [selectedTodo, setSelectedTodo] = useState<ToDo|null>(null);
 
-    const handleOpenDetail = (todo : Todo) => {
+    const handleOpenDetail = (todo : ToDo) => {
         setShowDatail(true);
         setSelectedTodo(todo);
     };
@@ -58,6 +58,7 @@ const TodoList : React.FC = () => {
 
     return (
         <div>
+            <TodoModal show={showDatail} todo={selectedTodo} handleClose={handleCloseDetail}></TodoModal>
             <h1> {title} </h1>
             <p></p>
             <div className="container">
@@ -96,7 +97,6 @@ const TodoList : React.FC = () => {
                 </div>
             </div>
             <div className="container">
-                <Timer></Timer>
                 <Clock></Clock>
             </div>
         </div>

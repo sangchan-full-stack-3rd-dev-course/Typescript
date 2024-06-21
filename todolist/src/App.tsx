@@ -2,6 +2,7 @@ import './App.css';
 import ClassCom from './component/day-4/ClassCom';
 import FuncCom from './component/day-4/FuncCom';
 import TodoList from './component/day-4/TodoList';
+import MyWeather from './component/day-5/MyWeather';
 
 function App () {
   let hello = "반갑습니다.";
@@ -17,6 +18,9 @@ function App () {
         </div>
         <div className='container'>
           <TodoList></TodoList>
+        </div>
+        <div className='container'>
+          <MyWeather weather='hot'>일기 예보</MyWeather>
         </div>
       </div>
   );
