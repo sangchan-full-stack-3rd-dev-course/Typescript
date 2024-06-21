@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #282c34;
+  color : white;
+  text-align: center;
+}
+
+.board {
+  background-color: aliceblue;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow : hidden;
+  color : black;
+  text-align: left;
+  font-size: 20px;
+}
+
+.del_btn {
+  color : red;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin : 5px 10px;
+  padding : 5px 10px;
+  font-size : 16px;
+  font-weight: bold;
+  text-align: center;
+}
